@@ -1,0 +1,88 @@
+
+/* assets/css/style.css - clean and commented for easy modification */
+:root{
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --accent: #9aa1a6;
+  --gap: 8px; /* approx 0.8cm depending on DPI; adjust to taste */
+  --col-count-desktop: 4;
+  --col-count-tablet: 3;
+  --col-count-mobile: 2;
+  --grid-row-height: 8px; /* used for masonry row calculation */
+  --max-width: 1200px;
+  --logo-size: 48px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;font-size:16px}
+a{color:inherit;text-decoration:none}
+.container{max-width:var(--max-width);margin:0 auto;padding:24px}
+
+/* Header */
+.header{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:center;z-index:60;pointer-events:none}
+.header-inner{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:center;pointer-events:auto;padding:0 16px}
+.logo{position:absolute;left:50%;transform:translateX(-50%);top:8px;height:var(--logo-size);display:flex;align-items:center;justify-content:center}
+.logo img{height:var(--logo-size);width:auto;display:block}
+.hamburger{position:absolute;left:16px;top:16px;width:34px;height:34px;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;pointer-events:auto}
+.hamburger span{display:block;height:3px;background:var(--text);border-radius:2px}
+
+/* menu overlay */
+.menu-overlay{position:fixed;left:0;top:0;bottom:0;right:0;background:rgba(255,255,255,0.96);z-index:70;display:none;flex-direction:column;padding:60px 32px}
+.menu-overlay.open{display:flex}
+.menu-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:12px;font-size:20px}
+.menu-list a{color:var(--text)}
+
+/* Hero carousel */
+.hero{width:100%;height:320px;overflow:hidden;position:relative;margin-top:64px}
+.hero img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(0%);transition:opacity .6s ease}
+.hero-overlay{position:absolute;left:0;top:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.hero-title{font-size:42px;color:var(--accent);background:rgba(255,255,255,0.02);padding:8px 12px;border-radius:4px}
+
+/* Filters - visible below hero */
+.filters{display:flex;justify-content:center;gap:20px;margin:18px 0;font-weight:600;color:var(--muted)}
+
+/* Gallery grid - masonry effect using CSS Grid + JS sizing */
+.grid{display:grid;grid-template-columns:repeat(var(--cols),1fr);gap:var(--gap);max-width:var(--max-width);margin:0 auto;padding:0 24px}
+.grid-item{background:#f5f5f5;overflow:hidden;border-radius:4px}
+.grid-item img{width:100%;height:auto;display:block;filter:grayscale(100%);transition:filter .35s ease, transform .35s ease;cursor:pointer}
+.grid-item:hover img{filter:grayscale(0%);transform:scale(1.02)}
+.grid-caption{padding:8px 6px;font-size:14px;color:var(--muted);text-align:left}
+
+/* Footer */
+.footer{border-top:1px solid #eee;margin-top:28px;padding:28px 24px;background:transparent}
+.footer .grid-footer{display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.footer .socials{display:flex;gap:12px;align-items:center}
+.footer form{display:flex;gap:8px;align-items:center}
+.footer input,.footer textarea{padding:8px;border:1px solid #ddd;border-radius:4px}
+
+/* Responsive rules */
+@media(min-width:1200px){
+  :root{--cols:4}
+  .hero{height:360px}
+}
+@media(max-width:1199px){
+  :root{--cols:3}
+  .hero{height:320px}
+}
+@media(max-width:768px){
+  :root{--cols:2}
+  .hero{height:260px}
+  .hero-title{font-size:28px}
+  .logo{top:6px}
+}
+
+/* Utility */
+.hide-on-load{opacity:0}
+.center{text-align:center}
+.container-spaced{padding-top:28px;padding-bottom:28px}
+
+/* Project link preview */
+.project-content{max-width:900px;margin:18px auto;padding:18px}
+.project-gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:900px){.project-gallery{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.project-gallery{grid-template-columns:repeat(1,1fr)}}
+
+/* small adjustments for spacing consistency */
+body{padding-bottom:60px}
