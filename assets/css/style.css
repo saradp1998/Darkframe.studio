@@ -93,17 +93,14 @@ body{padding-bottom:60px}
     border: none;          /* quita borde */
     padding: 0;            /* quita relleno extra */
     margin: 0 12px;        /* espacio entre palabras */
-    font-size: 22px;       /* tamaño más grande */
-    font-weight: bold;     /* negrita */
+    font-size: 15px;       /* tamaño más grande */
+    font-weight: regular;    
     color: var(--text);    /* usa color de texto principal */
     cursor: pointer;       /* cambio de cursor al pasar mouse */
     transition: color 0.3s; /* efecto suave al pasar mouse */
-}
 
 .filter-btn:hover {
     color: var(--accent);  /* cambia a color gris suave al pasar mouse */
-}
 
 .filter-btn.active {
     color: var(--accent);  /* el filtro activo se resalta */
-}
