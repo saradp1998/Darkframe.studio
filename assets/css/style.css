@@ -23,7 +23,7 @@ a{color:inherit;text-decoration:none}
 /* Header */
 .header{position:fixed;top:0;left:0;right:0;height:64px;display:flex;align-items:center;justify-content:center;z-index:60;pointer-events:none}
 .header-inner{width:100%;max-width:var(--max-width);display:flex;align-items:center;justify-content:center;pointer-events:auto;padding:0 16px}
-.logo{position:absolute;left:50%;transform:translateX(-50%);top:8px;height:var(--logo-size);display:flex;align-items:center;justify-content:center}
+.logo{position:absolute;left:50%;transform:translateX(-50%);top:8px;height:80px;width:auto;display:flex;align-items:center;justify-content:center}
 .logo img{height:var(--logo-size);width:auto;display:block}
 .hamburger{position:absolute;left:16px;top:16px;width:34px;height:34px;display:flex;flex-direction:column;justify-content:space-around;cursor:pointer;pointer-events:auto}
 .hamburger span{display:block;height:3px;background:var(--text);border-radius:2px}
