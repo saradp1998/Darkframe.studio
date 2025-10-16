@@ -1,36 +1,35 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Darkframe — Home</title>
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <!-- Header -->
-  <header class="header" role="banner">
-    <div class="header-inner">
-      <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
-        <span></span><span></span><span></span>
-      </div>
-      <div class="logo">
-        <!-- Placeholder logo - replace assets/images/logo.png with your file -->
-        <img src="assets/images/Darkframe_Logo.jpeg" alt="assets/images/Darkframe_Logo.jpeg">
-      </div>
-    </div>
-  </header>
 
-  <!-- Menu overlay -->
-  <nav class="menu-overlay" aria-hidden="true">
+<!-- Header -->
+<header class="header" role="banner">
+  <div class="header-inner">
+    <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="logo">
+      <img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe Logo">
+    </div>
+  </div>
+</header>
+
+  <!-- Slide-out menu -->
+  <nav class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <ul class="menu-list">
       <li><a href="index.html">Home</a></li>
-      <li><a href="#">Our Work</a>
-        <ul style="margin-left:14px;list-style:none;padding-left:0">
-          <li><a href="index.html">All</a></li>
-          <li><a href="#" onclick="document.querySelector('.filter-btn[data-type=exteriors]').click();return false;">Exteriors</a></li>
-          <li><a href="#" onclick="document.querySelector('.filter-btn[data-type=interiors]').click();return false;">Interiors</a></li>
-          <li><a href="#" onclick="document.querySelector('.filter-btn[data-type=competitions]').click();return false;">Competitions</a></li>
+      <li class="menu-sub">Our Work
+        <ul>
+          <li><a href="index.html#filter-all" data-action="filter" data-type="all">All</a></li>
+          <li><a href="index.html#filter-exteriors" data-action="filter" data-type="exteriors">Exteriors</a></li>
+          <li><a href="index.html#filter-interiors" data-action="filter" data-type="interiors">Interiors</a></li>
+          <li><a href="index.html#filter-competitions" data-action="filter" data-type="competitions">Competitions</a></li>
         </ul>
       </li>
       <li><a href="about.html">About Us</a></li>
@@ -39,24 +38,23 @@
   </nav>
 
   <!-- Hero carousel -->
-  <section class="hero" aria-label="Featured renders">
-    <img class="hero-slide" src="assets/images/hero/hero1.jpg" style="position:absolute;left:0;top:0;opacity:0;transition:opacity .8s ease">
-    <img class="hero-slide" src="assets/images/hero/hero2.jpg" style="position:absolute;left:0;top:0;opacity:0;transition:opacity .8s ease">
-    <img class="hero-slide" src="assets/images/hero/hero3.jpg" style="position:absolute;left:0;top:0;opacity:0;transition:opacity .8s ease">
-    <div class="hero-overlay">
-      <div class="hero-title">Darkframe</div>
-    </div>
-  </section>
+<section class="hero" aria-label="Featured renders">
+  <img class="hero-slide" src="assets/images/hero/2025.04.12_Wood Villa_WEB1.jpg">
+  <img class="hero-slide" src="assets/images/hero/2025.04.09_Privat Villa_WEB2.jpg">
+  <img class="hero-slide" src="assets/images/hero/2025.07.01_WEB3.jpg">
+</section>
 
-  <!-- Filters (visible below hero) -->
-  <div class="filters center" id="filters-bar" style="margin-top:18px">
-    <button class="filter-btn" data-type="all">All</button>
-    <button class="filter-btn" data-type="exteriors">Exteriors</button>
-    <button class="filter-btn" data-type="interiors">Interiors</button>
-    <button class="filter-btn" data-type="competitions">Competitions</button>
+  <!-- Filters (appear only after hero) -->
+  <div class="filters-wrap center" id="filtersWrap">
+    <nav class="filters" role="navigation" aria-label="Filter gallery">
+      <button class="filter-btn" data-type="all" id="filterAll">All</button>
+      <button class="filter-btn" data-type="exteriors">Exteriors</button>
+      <button class="filter-btn" data-type="interiors">Interiors</button>
+      <button class="filter-btn" data-type="competitions">Competitions</button>
+    </nav>
   </div>
 
-  <!-- Gallery -->
+   <!-- Gallery -->
   <main class="container container-spaced">
     <section class="grid" id="gallery" style="grid-auto-rows: var(--grid-row-height)">
 
@@ -124,6 +122,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
+ <script src="assets/js/script.js"></script>
 </body>
 </html>
