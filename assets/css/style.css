@@ -86,7 +86,6 @@ a{color:inherit;text-decoration:none}
 
 /* small adjustments for spacing consistency */
 body{padding-bottom:60px}
-
 /* Filters minimal style */
 .filter-btn {
     background: none;      /* quita fondo */
@@ -94,13 +93,16 @@ body{padding-bottom:60px}
     padding: 0;            /* quita relleno extra */
     margin: 0 12px;        /* espacio entre palabras */
     font-size: 16px;       /* tamaño más grande */
-    font-weight: semibold;
+    font-weight: semibold;     /* negrita */
     color: var(--text);    /* usa color de texto principal */
     cursor: pointer;       /* cambio de cursor al pasar mouse */
     transition: color 0.3s; /* efecto suave al pasar mouse */
+}
 
 .filter-btn:hover {
     color: var(--accent);  /* cambia a color gris suave al pasar mouse */
+}
 
 .filter-btn.active {
     color: var(--accent);  /* el filtro activo se resalta */
+}
