@@ -320,3 +320,183 @@ body {
 .center { text-align: center; }
 .container-spaced { padding-top: 28px; padding-bottom: 28px; }
 .hide-on-load { opacity: 0; }
+
+
+/* ===============================
+   CONTACT PAGE - Modern Layout
+   =============================== */
+
+/* Contenedor principal de toda la página */
+.contact-page {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;  /* ancho máximo de todo el contenido */
+  margin: 40px auto;  /* margen blanco alrededor */
+  padding: 30px;       /* espacio interior */
+  background: #fff;    /* fondo blanco uniforme */
+  box-shadow: 0 0 0 10px #fff; /* borde blanco extra */
+  gap:80px;           /* espacio entre imagen y formulario */
+}
+
+/* Lado izquierdo: imagen */
+.contact-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background: #000;     /* fondo negro para la imagen */
+}
+
+.contact-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: grayscale(0%);  /* imagen en blanco y negro */
+}
+.contact-left .contact-image:hover {
+  filter: grayscale(0%);
+}
+
+/* Lado derecho: formulario y texto */
+.contact-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+}
+
+/* Formulario */
+.contact-right form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-right input,
+.contact-right textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.contact-right button {
+  padding: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  background: #111;
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease;
+}
+.contact-right button:hover {
+  background: #444;
+}
+
+/* Footer social links */
+.socials {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 16px;
+}
+.icon-social {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+.social-link:hover .icon-social {
+  opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .contact-page {
+    flex-direction: column;
+    padding: 24px;
+  }
+  .contact-left,
+  .contact-right {
+    width: 100%;
+  }
+  .contact-left {
+    height: 300px; /* altura para móvil */
+  }
+}
+
+
+/* === Global logo overlay on all images === */
+.grid-item,
+.hero-slide,
+.project-gallery img {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Añade el logo PNG sobre todas las imágenes */
+.grid-item::after,
+.hero-slide::after,
+.project-gallery img::after {
+  content: "";
+  position: absolute;
+  right: 12px;       /* separación del borde derecho */
+  bottom: 12px;      /* separación del borde inferior */
+  width: var(--overlay-logo-size, 80px);  /* tamaño controlable */
+  height: auto;
+  aspect-ratio: 1 / 1; /* mantiene proporción cuadrada */
+  background-image: url('../images/Darkframe_Logo.png'); /* ruta del logo */
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right bottom;
+  opacity: 0.25;     /* nivel de transparencia */
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Para que el logo mantenga su tamaño en móvil también */
+@media (max-width: 768px) {
+  .grid-item::after,
+  .hero-slide::after,
+  .project-gallery img::after {
+    width: var(--overlay-logo-size-mobile, 60px); /* tamaño ajustado móvil */
+  }
+}
+
+/* ===== SOCIAL ICONS ===== */
+.contact-socials {
+  display: flex;
+  justify-content: center; /* centra los iconos horizontalmente */
+  gap: 20px;               /* espacio entre cada icono */
+  margin-top: 24px;        /* separación respecto al formulario */
+  flex-wrap: wrap;          /* permite que se ajusten en móvil */
+}
+
+.contact-socials a {
+  display: flex;
+  align-items: center;
+  gap: 6px;                /* espacio entre icono y handle */
+  font-size: 16px;
+}
+
+.icon-social {
+  width: 24px;              /* tamaño de los iconos */
+  height: 24px;
+  vertical-align: middle;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.contact-socials a:hover .icon-social {
+  opacity: 1;
+}
+
+.user-handle {
+  color: #aaa;
+  font-style: italic;
+}

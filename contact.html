@@ -1,30 +1,73 @@
-
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Darkframe — Contact</title><link rel="stylesheet" href="assets/css/style.css"></head>
-<script src="assets/js/script.js"></script>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Darkframe — Contact</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
 <body>
-<header class="header"><div class="header-inner">
-  <div class="hamburger" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
-  <div class="logo"><img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe logo"></div>
-</div></header>
-<nav class="menu-overlay"><ul class="menu-list">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="#">Our Work</a></li>
-  <li><a href="about.html">About Us</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul></nav>
 
-<main class="container container-spaced">
-  <h1>Contact</h1>
-  <p>Use the form below or email directly.</p>
-  <form id="contact-page-form" onsubmit="event.preventDefault(); document.getElementById('contact-email').value='you@example.com'; document.getElementById('footer-contact').dispatchEvent(new Event('submit'));">
-    <input type="text" placeholder="Your name" required>
-    <input type="email" placeholder="your@email.com" required>
-    <textarea placeholder="Message" rows="6" required></textarea>
-    <button type="submit">Send</button>
-    <div><h3>Let's create together.</h3><p>We speak English, German and Spanish.</p></div>
-    <div class="socials"><a href="mailto:you@example.com">Gmail</a> &nbsp;|&nbsp; <a href="#">LinkedIn</a> &nbsp;|&nbsp; <a href="#">Instagram</a></div>
-  </form>
-</main>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="hamburger" aria-label="Open menu" role="button" tabindex="0">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="logo">
+        <img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe Logo">
+      </div>
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <nav class="menu-overlay">
+    <ul class="menu-list">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="#">Our Work</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Layout -->
+  <main class="contact-page">
+    <div class="contact-left">
+      <!-- Puedes usar tu logo o un render vertical -->
+      <img src="assets/images/Interior/2025.03.10_Dinning render.jpg" alt="Darkframe Contact" class="contact-image">
+    </div>
+
+    <div class="contact-right">
+      <h1>Darkframe - Contact</h1>
+      <p>We would love to hear about your ideas. Let’s work together!</p>
+        <p>We speak English, German, and Spanish.</p>
+      <form class="contact-form">
+        <input type="text" placeholder="Your name" required>
+        <input type="email" placeholder="your@email.com" required>
+        <textarea placeholder="Your message" rows="5" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+ 
+      <div class="contact-socials">
+  <p href="mailto:you@example.com" class="social-link">
+    <img src="assets/images/Logos/gmail.svg" class="icon-social" alt="Gmail">
+    <span class="user-handle">@ejemplo</span>
+  </p>
+
+  <p href="#" class="social-link">
+    <img src="assets/images/Logos/linkedin.svg" class="icon-social" alt="LinkedIn">
+    <span class="user-handle">@ejemplo</span>
+  </p>
+
+  <p href="#" class="social-link">
+    <img src="assets/images/Logos/instagram.svg" class="icon-social" alt="Instagram">
+    <span class="user-handle">@ejemplo</span>
+  </p>
+</div>
+  </main>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
+
    
