@@ -1,42 +1,81 @@
-
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Darkframe — About</title>
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<script src="assets/js/script.js"></script>
 <body>
-<header class="header"><div class="header-inner">
-  <div class="hamburger" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
-  <div class="logo"><img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe logo"></div>
-</div></header>
-<nav class="menu-overlay"><ul class="menu-list">
-  <li><a href="index.html">Home</a></li>
-  <li><a href="#">Our Work</a></li>
-  <li><a href="about.html">About Us</a></li>
-  <li><a href="contact.html">Contact</a></li>
-</ul></nav>
 
-<main class="container container-spaced">
-  <h1>About Darkframe</h1>
-  <p>Darkframe is a visual studio focused on high-quality renders and visual storytelling. We speak English, German and Spanish.</p>
-  <p>Replace this text with your biography, approach, and short CV. Add links to publications or collaborators below.</p>
-</main>
-
-<footer class="footer container">
-  <div class="grid-footer">
-    <div><h3>Let's create together.</h3><p>We speak English, German and Spanish.</p></div>
-    <div class="socials"><a href="mailto:you@example.com">Gmail</a> &nbsp;|&nbsp; <a href="#">LinkedIn</a> &nbsp;|&nbsp; <a href="#">Instagram</a></div>
-    <form id="footer-contact">
-      <input id="contact-name" type="text" placeholder="Your name" required>
-      <input id="contact-email" type="email" placeholder="your@email.com" required>
-      <textarea id="contact-message" placeholder="Message" rows="2" required></textarea>
-      <button type="submit">Send</button>
-    </form>
+<!-- Header -->
+<header class="header">
+  <div class="header-inner">
+    <div class="hamburger" aria-label="Open menu" role="button" tabindex="0"><span></span><span></span><span></span></div>
   </div>
-</footer>
-<script src="assets/js/script.js"></script>
-</body>
-</html>
+</header>
+
+<!-- Menu overlay -->
+<nav class="menu-overlay">
+  <ul class="menu-list">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="#">Our Work</a>
+      <ul>
+        <li><a href="index.html#filter-all" data-action="filter" data-type="all">All</a></li>
+        <li><a href="index.html#filter-exteriors" data-action="filter" data-type="exteriors">Exteriors</a></li>
+        <li><a href="index.html#filter-interiors" data-action="filter" data-type="interiors">Interiors</a></li>
+        <li><a href="index.html#filter-competitions" data-action="filter" data-type="competitions">Competitions</a></li>
+      </ul>
+    </li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- Main About Section -->
+<main class="container container-spaced">
+  <div class="about-page">
+    <!-- Left column: image/logo -->
+   <div class="about-left">
+  <!-- Logo -->
+  <img src="assets/images/Darkframe_Logo.jpeg" class="about-image" alt="Darkframe logo">
+
+  <!-- Social icons debajo del logo -->
+  <div class="about-socials">
+    <a href="mailto:you@example.com" class="social-link">
+
+      <span class="user-handle">@ejemplo</span>
+    </a>
+
+    <a href="#" class="social-link">
+      <img src="assets/images/Logos/linkedin.svg" class="icon-social" alt="LinkedIn">
+      <span class="user-handle">@ejemplo</span>
+    </a>
+
+    <a href="#" class="social-link">
+      <img src="assets/images/Logos/instagram.svg" class="icon-social" alt="Instagram">
+      <span class="user-handle">@ejemplo</span>
+    </a>
+  </div>
+</div>
+
+
+    <!-- Right column: text -->
+    <div class="about-right">
+      <h1>About Darkframe</h1>
+
+      <p>Darkframe is a specialized visual studio creating high-quality architectural renders for projects worldwide. We focus on clean, precise imagery that highlights design intent and spatial experience.</p>
+      <p>With expertise in exteriors, interiors, competitions and concept visualizations, we combine technical accuracy with aesthetic storytelling, ensuring every render communicates light, materiality, and atmosphere.</p>
+      <p>Operating internationally, we collaborate seamlessly across borders, fluent in English, German, and Spanish. Whether you are an architect, designer, or developer, we deliver professional, polished visuals tailored to your project.
+      <p>If you are looking for high professional renders, feel free to get in touch, we would love to create something amazing together.</p>
+
+      <!-- Direct links to filters -->
+<div class="about-links">
+  <strong>Explore Our Work:</strong>
+  <ul>
+    <li><a href="index.html?filter=exteriors">Exteriors</a></li>
+    <li><a href="index.html?filter=interiors">Interiors</a></li>
+    <li><a href="index.html?filter=competitions">Competitions</a></li>
+  </ul>
+</div>
+

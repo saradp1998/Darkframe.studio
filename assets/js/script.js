@@ -71,3 +71,13 @@ document.addEventListener('DOMContentLoaded', function(){
     });
   });
 });
+
+// Activar filtro desde URL
+document.addEventListener('DOMContentLoaded', () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const filter = urlParams.get('filter'); // exteriors, interiors, competitions
+  if(filter){
+    const btn = document.querySelector(`.filter-btn[data-type="${filter}"]`);
+    if(btn) btn.click();
+  }
+});
