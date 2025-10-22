@@ -9,12 +9,17 @@ document.addEventListener('DOMContentLoaded', function(){
   /* Simple carousel */
   const slides = document.querySelectorAll('.hero-slide');
   let idx = 0;
-  function showSlide(i){
-    slides.forEach((s,si)=> s.style.opacity = si===i? '1' : '0');
+
+  function showSlide(i) {
+    slides.forEach((s, si) => s.classList.toggle('show', si === i));
   }
-  if(slides.length>0){
+
+  if (slides.length > 0) {
     showSlide(0);
-    setInterval(()=>{ idx = (idx+1)%slides.length; showSlide(idx); }, 4000);
+    setInterval(() => {
+      idx = (idx + 1) % slides.length;
+      showSlide(idx);
+    }, 4000);
   }
 
   /* Filters */
