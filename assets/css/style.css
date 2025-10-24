@@ -219,14 +219,6 @@ body {
   background: white;
 }
 
-.hero-slides {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  /* 👇 importante: evita que flex o grid afecte a las imágenes */
-  display: block;
-}
-
 .hero-slide {
   position: absolute; /* todas encima */
   top: 0;
@@ -243,14 +235,6 @@ body {
 .hero-slide.show {
   opacity: 1;
   z-index: 1;
-}
-/* ===== FIX HERO CAROUSEL POSITION ===== */
-.hero-slide {
-  position: absolute !important; /* fuerza posición absoluta */
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
 }
 
 /* ===== FILTERS ===== */
@@ -373,33 +357,6 @@ body {
   border: 1px solid #ddd;
   border-radius: 4px;
 }
-/* ===== PROJECT GALLERY GRID ===== */
-.project-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 16px;
-}
-
-.project-gallery img {
-  width: 100%;
-  display: block;
-  border-radius: 6px;
-  object-fit: cover;
-  cursor: pointer;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.project-gallery img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.05);
-}
-
-/* ===== PROJECT CONTENT ===== */
-.project-content {
-  max-width: 1200px;
-  margin: 0 auto 40px;
-  padding: 120px 24px 40px;
-}
 
 /* ===== LIGHTBOX MODERNO ===== */
 .lightbox {
@@ -423,41 +380,75 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* === Botón de cierre minimalista === */
 .lightbox .close {
   position: absolute;
   top: 20px;
   right: 30px;
-  font-size: 36px;
-  color: #fff;
+  font-size: 38px;
+  color: white;
+  background: none;
+  border: none;
   cursor: pointer;
+  line-height: 1;
+  transition: transform 0.2s ease, color 0.3s ease;
+  z-index: 10;
 }
 
+.lightbox .close:hover {
+  color: #ccc;
+  transform: scale(1.2);
+}
+
+/* ===== Modern Lightbox Arrows ===== */
 .lightbox .nav-arrows {
   position: absolute;
   top: 50%;
   width: 100%;
-  display:flex;
+  display: flex;
   justify-content: space-between;
   transform: translateY(-50%);
-  padding: 0 24px;
+  padding: 0 40px;
   box-sizing: border-box;
+  pointer-events: none; /* evita interferencias al hacer clic fuera */
 }
 
-.nav-arrows span {
-  font-size: 32px;
-  color: #fff;
-  cursor: pointer;
-  user-select: none;
-  padding: 12px;
+.arrow-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: none;
   border-radius: 50%;
-  background: rgba(255,255,255,0.15);
-  transition: background 0.3s, transform 0.2s;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: all; /* reactivar clics para el botón */
+  transition: background 0.3s ease, transform 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 
-.nav-arrows span:hover {
-  background: rgba(255,255,255,0.35);
+.arrow-btn svg {
+  width: 28px;
+  height: 28px;
+}
+
+.arrow-btn:hover {
+  background: rgba(255, 255, 255, 0.35);
   transform: scale(1.1);
 }
+
+@media (max-width: 768px) {
+  .arrow-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .arrow-btn svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
 
 /* ===== MASONRY GRID (CSS moderno) ===== */
 .masonry-grid {
@@ -706,47 +697,6 @@ body {
   .about-image { max-width: 100%; }
 }
 
-
-
-
-
-/* === Global logo overlay on all images === */
-.grid-item,
-.hero-slide,
-.project-gallery img {
-  position: relative;
-  overflow: hidden;
-}
-
-/* Añade el logo PNG sobre todas las imágenes */
-.grid-item::after,
-.hero-slide::after,
-.project-gallery img::after {
-  content: "";
-  position: absolute;
-  right: 12px;       /* separación del borde derecho */
-  bottom: 12px;      /* separación del borde inferior */
-  width: var(--overlay-logo-size, 80px);  /* tamaño controlable */
-  height: auto;
-  aspect-ratio: 1 / 1; /* mantiene proporción cuadrada */
-  background-image: url('../images/Darkframe_Logo.png'); /* ruta del logo */
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: right bottom;
-  opacity: 0.25;     /* nivel de transparencia */
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Para que el logo mantenga su tamaño en móvil también */
-@media (max-width: 768px) {
-  .grid-item::after,
-  .hero-slide::after,
-  .project-gallery img::after {
-    width: var(--overlay-logo-size-mobile, 60px); /* tamaño ajustado móvil */
-  }
-}
-
 /* ===== SOCIAL ICONS ===== */
 .contact-socials {
   display: flex;
@@ -778,4 +728,45 @@ body {
 .user-handle {
   color: #aaa;
   font-style: italic;
+}
+
+/* Contenedor padre */
+.image-wrap {
+  position: relative; /* 🔑 necesario para overlay absoluto */
+  display: block;
+  overflow: visible; /* 🔑 muy importante */
+}
+
+/* Imagen */
+.image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative; /* base para el z-index */
+  z-index: 1;
+}
+
+/* Overlay del logo */
+.logo-overlay {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  width: 80px;
+  height: 80px;
+  background-image: url("assets/images/Darkframe_Logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  opacity: 0.3;
+  pointer-events: none;
+
+  z-index: 9999 !important; /* 🔑 fuerza máxima */
+}
+
+/* Para móvil */
+@media (max-width: 768px) {
+  .logo-overlay {
+    width: 60px;
+    height: 60px;
+  }
 }

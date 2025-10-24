@@ -84,3 +84,68 @@ document.addEventListener('DOMContentLoaded', () => {
     if(btn) btn.click();
   }
 });
+
+// LIGHTBOX con galerías por proyecto (usa data-gallery si existe)
+document.addEventListener("DOMContentLoaded", () => {
+  const gridItems = document.querySelectorAll(".grid-item");
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("lightboxClose");
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
+
+  let currentGallery = [];
+  let currentIndex = 0;
+
+  function openLightbox() {
+    lightbox.style.display = "flex";
+    lightbox.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden"; // evita scroll detrás del lightbox
+  }
+  function closeLightbox() {
+    lightbox.style.display = "none";
+    lightbox.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = ""; // restaurar scroll
+  }
+
+  function showImage(index) {
+    if (!currentGallery.length) return;
+    if (index < 0) index = currentGallery.length - 1;
+    if (index >= currentGallery.length) index = 0;
+    currentIndex = index;
+    lightboxImg.src = currentGallery[index];
+    openLightbox();
+  }
+
+  gridItems.forEach((item) => {
+    const img = item.querySelector("img");
+    // Si se añadió data-gallery, usarlo; si no, usar solo la imagen principal
+    const galleryData = item.dataset.gallery;
+    const galleryImages = galleryData
+      ? galleryData.split(",").map(s => s.trim())
+      : [img.src];
+
+    img.addEventListener("click", (e) => {
+      e.preventDefault();
+      currentGallery = galleryImages;
+      showImage(0);
+    });
+  });
+
+  closeBtn.addEventListener("click", closeLightbox);
+  lightbox.addEventListener("click", (e) => {
+    // cerrar si se clickea el fondo (no el contenido)
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+  nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+
+  document.addEventListener("keydown", (e) => {
+    if (lightbox.style.display === "flex") {
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowRight") showImage(currentIndex + 1);
+      if (e.key === "ArrowLeft") showImage(currentIndex - 1);
+    }
+  });
+});

@@ -69,49 +69,74 @@
       <button class="filter-btn" data-type="competitions">Competitions</button>
     </nav>
   </div>
+<!-- Gallery -->
+<main class="container container-spaced">
+  <section class="grid" id="gallery" style="grid-auto-rows: var(--grid-row-height)">
 
-   <!-- Gallery -->
-  <main class="container container-spaced">
-    <section class="grid" id="gallery" style="grid-auto-rows: var(--grid-row-height)">
-
-      <article class="grid-item" data-type="exteriors" data-slug="projects/project1.html">
+    <article class="grid-item" data-type="exteriors" 
+            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/grid/render1.jpg" alt="Project 1">
-        <div class="grid-caption">Project 1</div>
-      </article>
-      <article class="grid-item" data-type="interiors" data-slug="projects/Interior Dinning render.html">
+       
+      </div>
+      <div class="grid-caption">Project 1</div>
+    </article>
+
+    <article class="grid-item">
+      <div class="image-wrap">
         <img src="assets/images/Interior/2025.03.10_Dinning render.jpg" alt="Dinning render">
-        <div class="grid-caption">Casa </div>
-      </article>
-      <article class="grid-item" data-type="competitions" data-slug="projects/Competition Moramanga Church.html">
+        <div class="logo-overlay"></div>
+      </div>
+      <div class="grid-caption">Casa</div>
+    </article>
+
+    <article class="grid-item" data-type="competitions" 
+            data-gallery="assets/images/Competitions/YAC MC/2025.07.20_YACMC.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC2.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC3.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC4.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC5.jpg">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/Competitions/YAC MC/2025.07.20_YACMC.jpg" alt="Competition Moramanga Church">
-        <div class="grid-caption">Moramanga Church | YAC</div>
-      </article>
-      <article class="grid-item" data-type="exteriors" data-slug="projects/project4.html">
+      </div>
+      <div class="grid-caption">Moramanga Church | YAC</div>
+    </article>
+    <article class="grid-item" data-type="exteriors" 
+            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/grid/render4.jpg" alt="Project 4">
-        <div class="grid-caption">Project 4</div>
-      </article>
-      <article class="grid-item" data-type="interiors" data-slug="projects/project5.html">
+      </div>
+      <div class="grid-caption">Project 4</div>
+    </article>
+
+    <article class="grid-item" data-type="interiors" 
+            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/grid/render5.jpg" alt="Project 5">
-        <div class="grid-caption">Project 5</div>
-      </article>
-      <article class="grid-item" data-type="competitions" data-slug="projects/Competition Volcano.html">
+      </div>
+      <div class="grid-caption">Project 5</div>
+    </article>
+
+    <article class="grid-item" data-type="competitions" 
+            data-gallery="assets/images/Competition/yac VOL 1.jpg, assets/images/Competition/yac VOL 2.jpg, assets/images/Competition/yac VOL 3.jpg, assets/images/Competitions/YAC VOL/2024.11.30_YAC VOL 0.png">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/Competitions/YAC VOL/2024.11.30_YAC VOL 1.png" alt="Competition Volcano">
-        <div class="grid-caption">Volcano Horsemen Retreat | YAC</div>
-      </article>
-      <article class="grid-item" data-type="exteriors" data-slug="projects/project7.html">
+      </div>
+      <div class="grid-caption">Volcano Horsemen Retreat | YAC</div>
+    </article>
+
+    <article class="grid-item" data-type="exteriors" 
+            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/grid/render7.jpg" alt="Project 7">
-        <div class="grid-caption">Project 7</div>
-      </article>
-      <article class="grid-item" data-type="interiors" data-slug="projects/project8.html">
+      </div>
+      <div class="grid-caption">Project 7</div>
+    </article>
+
+    <article class="grid-item" data-type="interiors">
+      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
         <img src="assets/images/grid/render8.jpg" alt="Project 8">
-        <div class="grid-caption">Project 8</div>
-      </article>
-      <article class="grid-item" data-type="exteriors" data-slug="projects/project10.html">
-        <img src="assets/images/grid/render10.jpg" alt="Project 10">
-        <div class="grid-caption">Project 10</div>
-      </article>
-    </section>
-  </main>
+      </div>
+      <div class="grid-caption">Project 8</div>
+    </article>
+  </section>
+</main>
 
   <!-- Footer with contact -->
   <footer class="footer container">
@@ -133,6 +158,20 @@
       </form>
     </div>
   </footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="close" id="lightboxClose" aria-label="Cerrar lightbox">&times;</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <div class="nav-arrows">
+    <button id="prev" class="arrow-btn" aria-label="Anterior">
+      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+    <button id="next" class="arrow-btn" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </button>
+  </div>
+</div>
 
  <script src="assets/js/script.js"></script>
 </body>
