@@ -459,31 +459,41 @@ body {
   transform: scale(1.1);
 }
 
-/* ===== MASONRY GALLERY ===== */
-.project-gallery.masonry {
-  column-count:3;
-  column-gap:16px;
+/* ===== MASONRY GRID (CSS moderno) ===== */
+.masonry-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-rows: masonry; /* navegador moderno */
+  gap: 16px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.project-gallery.masonry .gallery-item {
-  break-inside: avoid;
-  margin-bottom:16px;
-  overflow:hidden;
-  border-radius:8px;
+.gallery-item {
+  overflow: hidden;
+  border-radius: 8px;
 }
 
-.project-gallery.masonry img {
-  width:100%;
-  display:block;
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
   transition: transform 0.3s ease;
 }
-.project-gallery.masonry img:hover {
-  transform:scale(1.03);
+
+.gallery-item img:hover {
+  transform: scale(1.04);
 }
 
 /* Responsive */
-@media(max-width:992px) { .project-gallery.masonry { column-count:2; } }
-@media(max-width:600px) { .project-gallery.masonry { column-count:1; } }
+@media (max-width: 600px) {
+  .masonry-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 
 /* ===== UTILITIES ===== */
 .center { text-align: center; }
