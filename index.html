@@ -12,20 +12,20 @@
 <header class="header" role="banner">
   <div class="header-inner">
     <div class="logo">
-      <img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe Logo">
+      <img src="assets/images/Darkframe_Logo.png" alt="Darkframe Logo">
     </div>
     <nav class="main-nav">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
-        <li class="dropdown">
-          <a href="#">Our Work ▾</a>
+        <!-- <li class="dropdown"> -->
+          <!-- <a href="#">Our Work ▾</a>
           <ul class="dropdown-menu">
             <li><a href="index.html#filter-all" data-type="all">All</a></li>
             <li><a href="index.html#filter-exteriors" data-type="exteriors">Exteriors</a></li>
             <li><a href="index.html#filter-interiors" data-type="interiors">Interiors</a></li>
             <li><a href="index.html#filter-competitions" data-type="competitions">Competitions</a></li>
           </ul>
-        </li>
+        </li> -->
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -38,14 +38,14 @@
   <nav class="menu-overlay" id="menuOverlay" aria-hidden="true">
     <ul class="menu-list">
       <li><a href="index.html">Home</a></li>
-      <li class="menu-sub">Our Work
+      <!-- <li class="menu-sub">Our Work
         <ul>
           <li><a href="index.html#filter-all" data-action="filter" data-type="all">All</a></li>
           <li><a href="index.html#filter-exteriors" data-action="filter" data-type="exteriors">Exteriors</a></li>
           <li><a href="index.html#filter-interiors" data-action="filter" data-type="interiors">Interiors</a></li>
           <li><a href="index.html#filter-competitions" data-action="filter" data-type="competitions">Competitions</a></li>
         </ul>
-      </li>
+      </li> -->
       <li><a href="about.html">About Us</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
@@ -73,71 +73,23 @@
 <main class="container container-spaced">
   <section class="grid" id="gallery" style="grid-auto-rows: var(--grid-row-height)">
 
-    <article class="grid-item" data-type="exteriors" 
-            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/grid/render1.jpg" alt="Project 1">
-       
-      </div>
-      <div class="grid-caption">Project 1</div>
-    </article>
 
-    <article class="grid-item">
-      <div class="image-wrap">
-        <img src="assets/images/Interior/2025.03.10_Dinning render.jpg" alt="Dinning render">
-        <div class="logo-overlay"></div>
+    <article class="grid-item" data-type="exteriors">
+      <div class="image-wrap"
+           style="--logo-size: 72px; --logo-right: -10px; --logo-bottom: -10px; --logo-opacity: 1;">
+        <img src="assets/images/Interior/2025.03.10_Dinning render.jpg" alt="Casa">
       </div>
       <div class="grid-caption">Casa</div>
     </article>
 
-    <article class="grid-item" data-type="competitions" 
-            data-gallery="assets/images/Competitions/YAC MC/2025.07.20_YACMC.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC2.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC3.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC4.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC5.jpg">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
+    <article class="grid-item" data-type="competitions" data-gallery="assets/images/Competitions/YAC MC/2025.07.20_YACMC.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC2.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC3.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC4.jpg, assets/images/Competitions/YAC MC/2025.07.20_YACMC5.jpg">
+      <div class="image-wrap" 
+            style="--logo-width:100px; --logo-right:0px; --logo-bottom:0px; --logo-opacity:1;">
         <img src="assets/images/Competitions/YAC MC/2025.07.20_YACMC.jpg" alt="Competition Moramanga Church">
       </div>
       <div class="grid-caption">Moramanga Church | YAC</div>
     </article>
-    <article class="grid-item" data-type="exteriors" 
-            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/grid/render4.jpg" alt="Project 4">
-      </div>
-      <div class="grid-caption">Project 4</div>
-    </article>
-
-    <article class="grid-item" data-type="interiors" 
-            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/grid/render5.jpg" alt="Project 5">
-      </div>
-      <div class="grid-caption">Project 5</div>
-    </article>
-
-    <article class="grid-item" data-type="competitions" 
-            data-gallery="assets/images/Competition/yac VOL 1.jpg, assets/images/Competition/yac VOL 2.jpg, assets/images/Competition/yac VOL 3.jpg, assets/images/Competitions/YAC VOL/2024.11.30_YAC VOL 0.png">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/Competitions/YAC VOL/2024.11.30_YAC VOL 1.png" alt="Competition Volcano">
-      </div>
-      <div class="grid-caption">Volcano Horsemen Retreat | YAC</div>
-    </article>
-
-    <article class="grid-item" data-type="exteriors" 
-            data-gallery="assets/images/project1_1.jpg, assets/images/project1_2.jpg, assets/images/project1_3.jpg">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/grid/render7.jpg" alt="Project 7">
-      </div>
-      <div class="grid-caption">Project 7</div>
-    </article>
-
-    <article class="grid-item" data-type="interiors">
-      <div class="image-wrap" style="--logo-width:80px; --logo-right:12px; --logo-bottom:12px; --logo-opacity:0.3;">
-        <img src="assets/images/grid/render8.jpg" alt="Project 8">
-      </div>
-      <div class="grid-caption">Project 8</div>
-    </article>
-  </section>
-</main>
-
+    
   <!-- Footer with contact -->
   <footer class="footer container">
     <div class="grid-footer">
@@ -161,14 +113,22 @@
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
-  <button class="close" id="lightboxClose" aria-label="Cerrar lightbox">&times;</button>
-  <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  <button class="close" id="lightboxClose">&times;</button>
+
+  <div class="lightbox-media">
+    <img class="lightbox-img" id="lightboxImg" src="" alt="">
+  </div>
+
   <div class="nav-arrows">
-    <button id="prev" class="arrow-btn" aria-label="Anterior">
-      <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <button id="prev" class="arrow-btn" aria-label="Previous">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
     </button>
-    <button id="next" class="arrow-btn" aria-label="Siguiente">
-      <svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" stroke="white" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <button id="next" class="arrow-btn" aria-label="Next">
+      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
     </button>
   </div>
 </div>

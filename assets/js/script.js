@@ -87,25 +87,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // LIGHTBOX con galerías por proyecto (usa data-gallery si existe)
 document.addEventListener("DOMContentLoaded", () => {
-  const gridItems = document.querySelectorAll(".grid-item");
-  const lightbox = document.getElementById("lightbox");
+  const galleryEl   = document.getElementById("gallery");
+  const lightbox    = document.getElementById("lightbox");
   const lightboxImg = document.getElementById("lightboxImg");
-  const closeBtn = document.getElementById("lightboxClose");
-  const prevBtn = document.getElementById("prev");
-  const nextBtn = document.getElementById("next");
+  const closeBtn    = document.getElementById("lightboxClose");
+  const prevBtn     = document.getElementById("prev");
+  const nextBtn     = document.getElementById("next");
 
   let currentGallery = [];
-  let currentIndex = 0;
+  let currentIndex   = 0;
 
   function openLightbox() {
     lightbox.style.display = "flex";
     lightbox.setAttribute("aria-hidden", "false");
-    document.body.style.overflow = "hidden"; // evita scroll detrás del lightbox
+    document.body.style.overflow = "hidden";
   }
+
   function closeLightbox() {
     lightbox.style.display = "none";
     lightbox.setAttribute("aria-hidden", "true");
-    document.body.style.overflow = ""; // restaurar scroll
+    document.body.style.overflow = "";
   }
 
   function showImage(index) {
@@ -117,30 +118,46 @@ document.addEventListener("DOMContentLoaded", () => {
     openLightbox();
   }
 
-  gridItems.forEach((item) => {
-    const img = item.querySelector("img");
-    // Si se añadió data-gallery, usarlo; si no, usar solo la imagen principal
-    const galleryData = item.dataset.gallery;
-    const galleryImages = galleryData
-      ? galleryData.split(",").map(s => s.trim())
-      : [img.src];
+  // ✅ This now works — delegated click on ANY .grid-item
+  if (galleryEl) {
+    galleryEl.addEventListener("click", (e) => {
+      const item = e.target.closest(".grid-item");
+      if (!item || !galleryEl.contains(item)) return;
 
-    img.addEventListener("click", (e) => {
-      e.preventDefault();
-      currentGallery = galleryImages;
-      showImage(0);
+      const galleryData = item.dataset.gallery?.trim();
+      const fallbackImg = item.querySelector("img");
+      let galleryImages = [];
+
+      if (galleryData) {
+        galleryImages = galleryData
+          .split(",")
+          .map(s => s.trim())
+          .filter(Boolean)
+          .map(s => encodeURI(s)); // supports spaces in filenames
+      } else if (fallbackImg?.src) {
+        galleryImages = [fallbackImg.src];
+      }
+
+      if (galleryImages.length > 0) {
+        currentGallery = galleryImages;
+        showImage(0);
+        e.preventDefault(); // avoid default link behavior
+        return;
+      }
+
+      // Optional: fallback navigation via data-slug (if used)
+      const slug = item.dataset.slug;
+      if (slug) window.location.href = slug;
     });
-  });
+  }
 
+  // Lightbox controls
   closeBtn.addEventListener("click", closeLightbox);
   lightbox.addEventListener("click", (e) => {
-    // cerrar si se clickea el fondo (no el contenido)
     if (e.target === lightbox) closeLightbox();
   });
-
   prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
   nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
-
   document.addEventListener("keydown", (e) => {
     if (lightbox.style.display === "flex") {
       if (e.key === "Escape") closeLightbox();

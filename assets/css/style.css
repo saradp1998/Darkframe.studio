@@ -16,7 +16,7 @@
   --max-width: 1200px;
 
   --logo-size-desktop: 150px; /* logo size */
-  --header-height: 84px; /* header height */
+  --header-height: 120px; /* header height */
   --hero-height-desktop: 640px; /* hero height (double previous) */
 
   font-family: Arial, Helvetica, sans-serif;
@@ -215,7 +215,7 @@ body {
   height: 900px;
   position: relative;
   overflow: hidden;
-  margin: 40px auto 0;
+  margin: 0cm auto 0;
   background: white;
 }
 
@@ -730,43 +730,91 @@ body {
   font-style: italic;
 }
 
-/* Contenedor padre */
-.image-wrap {
-  position: relative; /* 🔑 necesario para overlay absoluto */
-  display: block;
-  overflow: visible; /* 🔑 muy importante */
+/* === WATERMARK / LOGO OVERLAY (grid images) === */
+/* Defaults you can override per .image-wrap */
+.grid .image-wrap {
+  position: relative;
+  overflow: visible;
+  /* IMPORTANT: CSS file is in assets/css/, so go up one folder to reach /images */
+  --logo-image: url('../images/Darkframe_Logo.png'); /* or ../images/Darkframe_Logo.jpeg */
+  --logo-size: 40px;        /* square logo size */
+  --logo-right: 0px;       /* distance from right edge */
+  --logo-bottom: 0px;      /* distance from bottom edge */
+  --logo-opacity: 1;     /* overall opacity */
 }
 
-/* Imagen */
-.image-wrap img {
+/* Paint the logo with a pseudo-element so no extra HTML is needed */
+.grid .image-wrap::after {
+  content: "";
+  position: absolute;
+  right: var(--logo-right);
+  bottom: var(--logo-bottom);
+  /* Backward compatibility with your existing --logo-width / --logo-height vars */
+  width:  var(--logo-size, var(--logo-width, 80px));
+  height: var(--logo-size, var(--logo-height, var(--logo-width, 80px)));
+  background-image: var(--logo-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: var(--logo-opacity);
+  pointer-events: none;
+  z-index: 2; /* sits above the <img> */
+}
+
+/* Ensure the image sits under the overlay */
+.grid .image-wrap > img {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   height: auto;
-  position: relative; /* base para el z-index */
-  z-index: 1;
 }
 
-/* Overlay del logo */
-.logo-overlay {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 80px;
-  height: 80px;
-  background-image: url("assets/images/Darkframe_Logo.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-
-  z-index: 9999 !important; /* 🔑 fuerza máxima */
-}
-
-/* Para móvil */
+/* Optional: smaller default logo on mobile */
 @media (max-width: 768px) {
-  .logo-overlay {
-    width: 60px;
-    height: 60px;
-  }
+  .grid .image-wrap { --logo-size: 60px; }
+}
+
+/* If you ever want to hide the watermark on a specific image */
+.grid .image-wrap.no-logo::after { content: none; }
+
+
+
+/* === Lightbox watermark overlay (anchored to the displayed image) === */
+.lightbox-media {
+  position: relative;
+  display: inline-block;
+  max-width: 90%;
+  max-height: 90%;
+  /* defaults; JS will override from the clicked .image-wrap when available */
+  --logo-image: url('../images/Darkframe_Logo.png'); /* use your real file */
+  --logo-size: 120px;
+  --logo-right: 0px;
+  --logo-bottom: 0px;
+  --logo-opacity: 1;
+}
+.lightbox-media .lightbox-img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+.lightbox-media::after {
+  content: "";
+  position: absolute;
+  right: var(--logo-right);
+  bottom: var(--logo-bottom);
+  width:  var(--logo-size);
+  height: var(--logo-size);
+  background-image: var(--logo-image);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: var(--logo-opacity);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Optional: smaller on mobile */
+@media (max-width: 768px) {
+  .lightbox-media { --logo-size: 60px; }
 }

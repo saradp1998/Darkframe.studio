@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Darkframe — About</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Darkframe — Home</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 
@@ -12,11 +12,20 @@
 <header class="header" role="banner">
   <div class="header-inner">
     <div class="logo">
-      <img src="assets/images/Darkframe_Logo.jpeg" alt="Darkframe Logo">
+      <img src="assets/images/Darkframe_Logo.png" alt="Darkframe Logo">
     </div>
     <nav class="main-nav">
       <ul class="nav-list">
         <li><a href="index.html">Home</a></li>
+        <!-- <li class="dropdown"> -->
+          <!-- <a href="#">Our Work ▾</a>
+          <ul class="dropdown-menu">
+            <li><a href="index.html#filter-all" data-type="all">All</a></li>
+            <li><a href="index.html#filter-exteriors" data-type="exteriors">Exteriors</a></li>
+            <li><a href="index.html#filter-interiors" data-type="interiors">Interiors</a></li>
+            <li><a href="index.html#filter-competitions" data-type="competitions">Competitions</a></li>
+          </ul>
+        </li> -->
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
@@ -24,22 +33,23 @@
   </div>
 </header>
 
-<!-- Menu overlay -->
-<nav class="menu-overlay">
-  <ul class="menu-list">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="#">Our Work</a>
-      <ul>
-        <li><a href="index.html#filter-all" data-action="filter" data-type="all">All</a></li>
-        <li><a href="index.html#filter-exteriors" data-action="filter" data-type="exteriors">Exteriors</a></li>
-        <li><a href="index.html#filter-interiors" data-action="filter" data-type="interiors">Interiors</a></li>
-        <li><a href="index.html#filter-competitions" data-action="filter" data-type="competitions">Competitions</a></li>
-      </ul>
-    </li>
-    <li><a href="about.html">About Us</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
+
+  <!-- Slide-out menu -->
+  <nav class="menu-overlay" id="menuOverlay" aria-hidden="true">
+    <ul class="menu-list">
+      <li><a href="index.html">Home</a></li>
+      <!-- <li class="menu-sub">Our Work
+        <ul>
+          <li><a href="index.html#filter-all" data-action="filter" data-type="all">All</a></li>
+          <li><a href="index.html#filter-exteriors" data-action="filter" data-type="exteriors">Exteriors</a></li>
+          <li><a href="index.html#filter-interiors" data-action="filter" data-type="interiors">Interiors</a></li>
+          <li><a href="index.html#filter-competitions" data-action="filter" data-type="competitions">Competitions</a></li>
+        </ul>
+      </li> -->
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
 
 <!-- Main About Section -->
 <main class="container container-spaced">
