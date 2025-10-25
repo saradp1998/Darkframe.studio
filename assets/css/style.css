@@ -58,7 +58,7 @@ a { color: inherit; text-decoration: none; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 32px;
+  padding: 0px;
 }
 
 /* Logo */
@@ -103,52 +103,6 @@ a { color: inherit; text-decoration: none; }
 .nav-list a:hover {
   color: var(--accent);
 }
-
-/* Dropdown */
-.dropdown {
-  position: relative;
-}
-
-.dropdown > a {
-  gap: 4px; /* separación entre texto y flecha ▾ */
-}
-
-.dropdown-menu {
-  position: absolute;
-  top: 120%;
-  left: 0;
-  background: white;
-  border: 1px solid #eee;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  list-style: none;
-  padding: 8px 0;
-  margin: 0;
-  display: none;
-  flex-direction: column;
-  min-width: 160px;
-  z-index: 200;
-}
-
-.dropdown-menu li {
-  padding: 6px 18px;
-}
-
-.dropdown-menu li a {
-  color: #111;
-  font-weight: 500;
-  display: block;
-}
-
-.dropdown-menu li a:hover {
-  background: #f8f8f8;
-  color: var(--accent);
-}
-
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
-  display: flex;
-}
-
 /* Responsive tweaks */
 @media (max-width: 768px) {
   .nav-list {
@@ -160,12 +114,10 @@ a { color: inherit; text-decoration: none; }
   }
 }
 
-
 /* Logo */
 .logo {
   position: fixed;
-  right: 0;
-  top: 4px;
+  right: 0px; top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -567,6 +519,119 @@ body {
   background: #444;
 }
 
+/* ===============================
+   HOME PAGE - Compact Contact Section
+   =============================== */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 80px 20px;
+  background: #f9f9f9;        /* sutil fondo gris para destacar */
+}
+
+.contact-inner {
+  width: 100%;
+  max-width: 600px;            /* más estrecho */
+  text-align: center;
+  background: #fff;
+  padding: 40px 40px 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Titular */
+.contact-inner h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+}
+
+/* Subtexto */
+.contact-inner p {
+  color: var(--muted);
+  margin-bottom: 24px;
+}
+
+/* Formulario */
+.contact-inner .contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-inner .contact-form input,
+.contact-inner .contact-form textarea {
+  padding: 12px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease;
+}
+
+.contact-inner .contact-form input:focus,
+.contact-inner .contact-form textarea:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.contact-inner .contact-form button {
+  background: #111;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-inner .contact-form button:hover {
+  background: var(--accent);
+}
+
+/* Redes sociales */
+.contact-inner .contact-socials {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-inner .contact-socials a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.contact-inner .icon-social {
+  width: 22px;
+  height: 22px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.contact-inner .contact-socials a:hover .icon-social {
+  opacity: 1;
+}
+
+.contact-inner .user-handle {
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .contact-inner {
+    padding: 30px 20px 40px;
+    max-width: 90%;
+  }
+}
+
 /* Footer social links */
 .socials {
   display: flex;
@@ -737,7 +802,7 @@ body {
   overflow: visible;
   /* IMPORTANT: CSS file is in assets/css/, so go up one folder to reach /images */
   --logo-image: url('../images/Darkframe_Logo.png'); /* or ../images/Darkframe_Logo.jpeg */
-  --logo-size: 40px;        /* square logo size */
+  --logo-size: 60px;        /* square logo size */
   --logo-right: 0px;       /* distance from right edge */
   --logo-bottom: 0px;      /* distance from bottom edge */
   --logo-opacity: 1;     /* overall opacity */
