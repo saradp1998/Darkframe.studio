@@ -276,6 +276,11 @@ body {
   .logo img { height: 70px; }
   .header { height: 70px; }
   .brand-title { font-size: 22px; }
+
+  /* Ajuste para el hero carrusel */
+  .hero {
+    height: 60vh; /* altura adaptable en móvil */
+  }
 }
 
 /* ===== FOOTER ===== */
