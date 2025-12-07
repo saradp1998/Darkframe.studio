@@ -96,6 +96,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let currentGallery = [];
   let currentIndex   = 0;
+  function updateArrows() {
+  if (currentGallery.length > 1) {
+    prevBtn.style.display = "block";
+    nextBtn.style.display = "block";
+  } else {
+    prevBtn.style.display = "none";
+    nextBtn.style.display = "none";
+  }
+}
 
   function openLightbox() {
     lightbox.style.display = "flex";
@@ -113,10 +122,14 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!currentGallery.length) return;
     if (index < 0) index = currentGallery.length - 1;
     if (index >= currentGallery.length) index = 0;
+
     currentIndex = index;
     lightboxImg.src = currentGallery[index];
+
+    updateArrows();   // 🆕 Hide/show arrows depending on number of images
     openLightbox();
   }
+
 
   // ✅ This now works — delegated click on ANY .grid-item
   if (galleryEl) {
