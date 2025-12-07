@@ -62,12 +62,19 @@
       <h1>Darkframe - Contact</h1>
       <p>We would love to hear about your ideas. Let’s work together!</p>
         <p>We speak English, German, and Spanish.</p>
-      <form class="contact-form">
-        <input type="text" placeholder="Your name" required>
-        <input type="email" placeholder="your@email.com" required>
-        <textarea placeholder="Your message" rows="5" required></textarea>
-        <button type="submit">Send Message</button>
-      </form>
+      <form class="contact-form" action="https://formsubmit.co/contact@darkframe.studio" method="POST">
+
+      <!-- FormSubmit options -->
+      <input type="hidden" name="_subject" value="New Contact Form Message">
+      <input type="hidden" name="_captcha" value="false">
+
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="your@email.com" required>
+      <textarea name="message" placeholder="Your message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
  
      <div class="contact-socials">
       <!-- Gmail -->
